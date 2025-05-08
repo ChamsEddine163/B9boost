@@ -3,62 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Baseball 9 Hub</title>
+  <title>GameBoost Hub</title>
   <style>
     body {
       margin: 0;
       padding: 0;
       background: linear-gradient(135deg, #0d1117, #1f2937);
       font-family: 'Arial', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       color: #ffffff;
+      text-align: center;
     }
     .container {
-      text-align: center;
-      padding: 20px;
+      max-width: 400px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .section {
       background-color: #111827;
       border-radius: 16px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-      width: 90%;
-      max-width: 400px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      margin-bottom: 40px;
+      padding: 20px;
     }
-    .container img {
-      max-width: 100%;
+    .section img {
+      width: 100%;
       border-radius: 12px;
       margin-bottom: 20px;
     }
-    .container h1 {
+    .section h1 {
       font-size: 22px;
       margin-bottom: 10px;
     }
-    .container p {
+    .section p {
       font-size: 16px;
       margin-bottom: 20px;
+      color: #ccc;
     }
     .button {
       display: inline-block;
       padding: 12px 24px;
       background-color: #ff5c33;
-      color: white;
+      color: #fff;
       text-decoration: none;
       border-radius: 8px;
       font-weight: bold;
       box-shadow: 0 0 10px #ff5c33;
+      transition: transform 0.1s ease-in-out, box-shadow 0.2s ease;
     }
     .button:hover {
+      transform: scale(1.05);
       box-shadow: 0 0 20px #ff5c33, 0 0 30px #ff5c33;
+    }
+    .button:active {
+      transform: scale(0.95);
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <img src="https://i.postimg.cc/MTNzWHfS/IMG-3662.jpg" alt="Baseball 9" />
-    <h1>Boost Your Baseball 9</h1>
-    <p>Click below to unlock tips, tricks, and secrets!</p>
-    <a href="https://content-unlock.com/?31707c4" class="button">Access Now</a>
+
+    <!-- Roblox Section -->
+    <div class="section">
+      <img src="https://i.postimg.cc/9QnTcyk3/IMG-4232.jpg" alt="Roblox Banner">
+      <h1>Ready to Level Up in Roblox?</h1>
+      <p>Click below to unlock tips, tricks, and secrets!</p>
+      <a href="https://unlock-content.net/?937a1f0" class="button" target="_blank">Access Now</a>
+    </div>
+
+    <!-- Baseball 9 Section -->
+    <div class="section">
+      <img src="https://i.postimg.cc/MTNzWHfS/IMG-3662.jpg" alt="Baseball 9 Banner">
+      <h1>Boost Your Baseball 9</h1>
+      <p>Click below to unlock tips, tricks, and secrets!</p>
+      <a href="https://content-unlock.com/?31707c4" class="button" target="_blank">Access Now</a>
+    </div>
+
   </div>
 </body>
 </html>
