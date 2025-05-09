@@ -12,21 +12,15 @@
       font-family: 'Arial', sans-serif;
       color: #ffffff;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
     .container {
       max-width: 400px;
-      margin: 30px auto;
+      margin: 40px auto;
       padding: 0 20px;
-    }
-    .title {
-      margin-bottom: 10px;
-      font-size: 26px;
-      font-weight: bold;
-    }
-    .subtitle {
-      font-size: 16px;
-      color: #bbb;
-      margin-bottom: 30px;
+      flex: 1;
     }
     .section {
       background-color: #111827;
@@ -67,19 +61,22 @@
     .button:active {
       transform: scale(0.95);
     }
+    footer {
+      padding: 20px 0;
+      color: #aaa;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="title">GameBoost Hub</div>
-    <div class="subtitle">Your shortcut to pro-level gameplay — Roblox & Baseball 9</div>
 
     <!-- Roblox Section -->
     <div class="section">
       <img src="https://i.postimg.cc/9QnTcyk3/IMG-4232.jpg" alt="Roblox Banner">
       <h1>Ready to Level Up in Roblox?</h1>
       <p>Click below to unlock tips, tricks, and secrets!</p>
-      <a href="https://unlock-content.net/?937a1f0" class="button" target="_blank">Access Now</a>
+      <a href="https://unlock-content.net/?937a1f0" class="button" target="_blank">Click Here</a>
     </div>
 
     <!-- Baseball 9 Section -->
@@ -87,9 +84,11 @@
       <img src="https://i.postimg.cc/MTNzWHfS/IMG-3662.jpg" alt="Baseball 9 Banner">
       <h1>Boost Your Baseball 9</h1>
       <p>Click below to unlock tips, tricks, and secrets!</p>
-      <a href="https://content-unlock.com/?31707c4" class="button" target="_blank">Access Now</a>
+      <a href="https://content-unlock.com/?31707c4" class="button" target="_blank">Click Here</a>
     </div>
 
   </div>
+
+  <footer>GameBoost Hub © 2025</footer>
 </body>
 </html>
