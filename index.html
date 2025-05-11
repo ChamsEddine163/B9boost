@@ -80,48 +80,23 @@
       font-size: 14px;
     }
   </style>
-  <script>
-    function redirectTo(link) {
-      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-      const isAndroid = /android/i.test(userAgent);
-      const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
-
-      // This solves TikTok warning and redirects properly
-      if (isAndroid || isIOS) {
-        window.location.href = link;
-      } else {
-        window.location.href = link;
-      }
-    }
-  </script>
 </head>
 <body>
   <div class="container">
-
-    <!-- Headline and Subheadline -->
     <div class="header">
       <h1>GameBoost Hub</h1>
       <p>Your shortcut to pro-level gameplay — Roblox & Baseball 9</p>
     </div>
 
-    <!-- Roblox Section -->
     <div class="section">
       <img src="https://i.postimg.cc/9QnTcyk3/IMG-4232.jpg" alt="Roblox Banner">
       <h1>Ready to Level Up in Roblox?</h1>
       <p>Click below to unlock tips, tricks, and secrets!</p>
-      <a onclick="redirectTo('https://unlock-content.net/?937a1f0')" class="button">Click Here</a>
+      <a href="roblox.html" class="button" target="_blank">Click Here</a>
     </div>
 
-    <!-- Baseball 9 Section -->
     <div class="section">
       <img src="https://i.postimg.cc/MTNzWHfS/IMG-3662.jpg" alt="Baseball 9 Banner">
       <h1>Boost Your Baseball 9</h1>
       <p>Click below to unlock tips, tricks, and secrets!</p>
-      <a onclick="redirectTo('https://content-unlock.com/?31707c4')" class="button">Click Here</a>
-    </div>
-
-  </div>
-
-  <footer>&copy; 2025 GameBoost Hub</footer>
-</body>
-</html>
+      <a href="baseball9.html" class="button" target="_blank">Click Here</a>
