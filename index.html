@@ -5,13 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GameBoost Hub</title>
   <script>
-    // Only apply referrer meta for Android to fix TikTok redirect issue
-    const ua = navigator.userAgent || navigator.vendor || window.opera;
-    if (/android/i.test(ua)) {
-      const meta = document.createElement('meta');
-      meta.name = "referrer";
-      meta.content = "origin";
-      document.head.appendChild(meta);
+    const ua = navigator.userAgent.toLowerCase();
+    if (ua.includes("android")) {
+      document.write('<meta name="referrer" content="origin">');
     }
   </script>
   <style>
@@ -93,6 +89,7 @@
 </head>
 <body>
   <div class="container">
+
     <!-- Headline and Subheadline -->
     <div class="header">
       <h1>GameBoost Hub</h1>
@@ -114,6 +111,7 @@
       <p>Click below to unlock tips, tricks, and secrets!</p>
       <a href="https://content-unlock.com/?31707c4" class="button" target="_blank">Click Here</a>
     </div>
+
   </div>
 
   <footer>&copy; 2025 GameBoost Hub</footer>
