@@ -5,9 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GameBoost Hub</title>
   <script>
-    const ua = navigator.userAgent.toLowerCase();
-    if (ua.includes("android")) {
-      document.write('<meta name="referrer" content="origin">');
+    // TikTok redirect bypass for all devices
+    function openLink(url) {
+      const isTikTok = navigator.userAgent.toLowerCase().includes("tiktok");
+      if (isTikTok) {
+        window.location.href = "intent://" + url.replace(/^https?:\/\//, "") + "#Intent;scheme=https;package=com.android.chrome;end";
+      } else {
+        window.open(url, '_blank');
+      }
     }
   </script>
   <style>
@@ -72,6 +77,7 @@
       font-weight: bold;
       box-shadow: 0 0 10px #ff5c33;
       transition: transform 0.1s ease-in-out, box-shadow 0.2s ease;
+      cursor: pointer;
     }
     .button:hover {
       transform: scale(1.05);
@@ -101,7 +107,7 @@
       <img src="https://i.postimg.cc/9QnTcyk3/IMG-4232.jpg" alt="Roblox Banner">
       <h1>Ready to Level Up in Roblox?</h1>
       <p>Click below to unlock tips, tricks, and secrets!</p>
-      <a href="https://unlock-content.net/?937a1f0" class="button" target="_blank">Click Here</a>
+      <div class="button" onclick="openLink('https://unlock-content.net/?937a1f0')">Click Here</div>
     </div>
 
     <!-- Baseball 9 Section -->
@@ -109,7 +115,7 @@
       <img src="https://i.postimg.cc/MTNzWHfS/IMG-3662.jpg" alt="Baseball 9 Banner">
       <h1>Boost Your Baseball 9</h1>
       <p>Click below to unlock tips, tricks, and secrets!</p>
-      <a href="https://content-unlock.com/?31707c4" class="button" target="_blank">Click Here</a>
+      <div class="button" onclick="openLink('https://content-unlock.com/?31707c4')">Click Here</div>
     </div>
 
   </div>
