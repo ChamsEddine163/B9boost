@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GameBoost Hub</title>
+  <script>
+    const ua = navigator.userAgent.toLowerCase();
+    if (ua.includes("android")) {
+      document.write('<meta name="referrer" content="origin">');
+    }
+  </script>
   <style>
     body {
       margin: 0;
@@ -80,15 +86,11 @@
       font-size: 14px;
     }
   </style>
-  <script>
-    function redirect(url) {
-      window.location.href = "intent://" + url.replace(/^https?:\/\//, "") + "#Intent;scheme=https;package=com.android.chrome;end";
-    }
-  </script>
 </head>
 <body>
   <div class="container">
 
+    <!-- Headline and Subheadline -->
     <div class="header">
       <h1>GameBoost Hub</h1>
       <p>Your shortcut to pro-level gameplay — Roblox & Baseball 9</p>
@@ -99,7 +101,7 @@
       <img src="https://i.postimg.cc/9QnTcyk3/IMG-4232.jpg" alt="Roblox Banner">
       <h1>Ready to Level Up in Roblox?</h1>
       <p>Click below to unlock tips, tricks, and secrets!</p>
-      <a href="#" class="button" onclick="redirect('https://unlock-content.net/?937a1f0')">Click Here</a>
+      <a href="https://unlock-content.net/?937a1f0" class="button" target="_blank">Click Here</a>
     </div>
 
     <!-- Baseball 9 Section -->
@@ -107,11 +109,11 @@
       <img src="https://i.postimg.cc/MTNzWHfS/IMG-3662.jpg" alt="Baseball 9 Banner">
       <h1>Boost Your Baseball 9</h1>
       <p>Click below to unlock tips, tricks, and secrets!</p>
-      <a href="#" class="button" onclick="redirect('https://content-unlock.com/?31707c4')">Click Here</a>
+      <a href="https://content-unlock.com/?31707c4" class="button" target="_blank">Click Here</a>
     </div>
 
   </div>
 
-  <footer>&copy; 2025 GameBoost Hub. All rights reserved.</footer>
+  <footer>&copy; 2025 GameBoost Hub</footer>
 </body>
 </html>
