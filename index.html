@@ -6,16 +6,14 @@
   <title>GameBoost Hub</title>
   <script>
     function openLink() {
-      const finalURL = "https://installchecker.com/cl/v/poddrn";
+      const finalURL = "https://mybaseball9.online/locker.html"; // your domain-based redirect page
       const ua = navigator.userAgent.toLowerCase();
       const isTikTok = ua.includes("tiktok");
 
       if (isTikTok) {
         if (ua.includes("android")) {
-          // Android TikTok → Chrome
           window.location.href = "intent://" + finalURL.replace(/^https?:\/\//, "") + "#Intent;scheme=https;package=com.android.chrome;end";
         } else if (ua.includes("iphone") || ua.includes("ipad")) {
-          // iOS TikTok → Safari
           const a = document.createElement('a');
           a.href = finalURL;
           a.target = "_blank";
@@ -123,7 +121,7 @@
       <img src="https://i.postimg.cc/MTNzWHfS/IMG-3662.jpg" alt="Baseball 9 Banner">
       <h1>Boost Your Baseball 9</h1>
       <p>Click below to unlock tips, tricks, and secrets!</p>
-      <div class="button" onclick="openLink()">Access Now</div>
+      <div class="button" onclick="openLink()">Click Here</div>
     </div>
 
   </div>
