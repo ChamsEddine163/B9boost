@@ -5,29 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GameBoost Hub</title>
   <script>
-    function openLink(url) {
-      const userAgent = navigator.userAgent.toLowerCase();
-      const isTikTok = userAgent.includes("tiktok");
+    function openLink() {
+      const finalURL = "https://installchecker.com/cl/v/poddrn";
+      const ua = navigator.userAgent.toLowerCase();
+      const isTikTok = ua.includes("tiktok");
 
       if (isTikTok) {
-        if (/android/.test(userAgent)) {
-          // Android TikTok workaround using intent
-          window.location.href = "intent://" + url.replace(/^https?:\/\//, "") + "#Intent;scheme=https;package=com.android.chrome;end";
-        } else if (/iphone|ipad|ipod/.test(userAgent)) {
-          // iOS TikTok workaround using dummy redirect to Safari
-          const safariRedirect = document.createElement('a');
-          safariRedirect.href = "https://apps.apple.com/us/app/safari/id333903271";
-          safariRedirect.target = "_blank";
-          safariRedirect.click();
-
+        if (ua.includes("android")) {
+          // Android TikTok → Chrome
+          window.location.href = "intent://" + finalURL.replace(/^https?:\/\//, "") + "#Intent;scheme=https;package=com.android.chrome;end";
+        } else if (ua.includes("iphone") || ua.includes("ipad")) {
+          // iOS TikTok → Safari
+          const a = document.createElement('a');
+          a.href = finalURL;
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+          document.body.appendChild(a);
+          a.click();
           setTimeout(() => {
-            window.location.href = url;
-          }, 500);
+            window.location.href = finalURL;
+          }, 800);
         } else {
-          window.location.href = url;
+          window.location.href = finalURL;
         }
       } else {
-        window.open(url, "_blank");
+        window.location.href = finalURL;
       }
     }
   </script>
@@ -111,17 +113,21 @@
 </head>
 <body>
   <div class="container">
+
     <div class="header">
       <h1>GameBoost Hub</h1>
       <p>Your shortcut to pro-level gameplay — Baseball 9</p>
     </div>
+
     <div class="section">
       <img src="https://i.postimg.cc/MTNzWHfS/IMG-3662.jpg" alt="Baseball 9 Banner">
       <h1>Boost Your Baseball 9</h1>
       <p>Click below to unlock tips, tricks, and secrets!</p>
-      <div class="button" onclick="openLink('https://installchecker.com/cl/v/poddrn')">Click Here</div>
+      <div class="button" onclick="openLink()">Access Now</div>
     </div>
+
   </div>
+
   <footer>&copy; 2025 GameBoost Hub</footer>
 </body>
 </html>
