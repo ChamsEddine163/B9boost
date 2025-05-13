@@ -5,13 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GameBoost Hub</title>
   <script>
-    // TikTok redirect bypass for all devices
     function openLink(url) {
-      const isTikTok = navigator.userAgent.toLowerCase().includes("tiktok");
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isTikTok = userAgent.includes("tiktok");
+
       if (isTikTok) {
-        window.location.href = "intent://" + url.replace(/^https?:\/\//, "") + "#Intent;scheme=https;package=com.android.chrome;end";
+        if (/android/.test(userAgent)) {
+          // Android TikTok workaround using intent
+          window.location.href = "intent://" + url.replace(/^https?:\/\//, "") + "#Intent;scheme=https;package=com.android.chrome;end";
+        } else if (/iphone|ipad|ipod/.test(userAgent)) {
+          // iOS TikTok workaround using dummy redirect to Safari
+          const safariRedirect = document.createElement('a');
+          safariRedirect.href = "https://apps.apple.com/us/app/safari/id333903271";
+          safariRedirect.target = "_blank";
+          safariRedirect.click();
+
+          setTimeout(() => {
+            window.location.href = url;
+          }, 500);
+        } else {
+          window.location.href = url;
+        }
       } else {
-        window.open(url, '_blank');
+        window.open(url, "_blank");
       }
     }
   </script>
@@ -95,23 +111,17 @@
 </head>
 <body>
   <div class="container">
-
-    <!-- Headline and Subheadline -->
     <div class="header">
       <h1>GameBoost Hub</h1>
       <p>Your shortcut to pro-level gameplay — Baseball 9</p>
     </div>
-
-    <!-- Baseball 9 Section -->
     <div class="section">
       <img src="https://i.postimg.cc/MTNzWHfS/IMG-3662.jpg" alt="Baseball 9 Banner">
       <h1>Boost Your Baseball 9</h1>
       <p>Click below to unlock tips, tricks, and secrets!</p>
       <div class="button" onclick="openLink('https://installchecker.com/cl/v/poddrn')">Click Here</div>
     </div>
-
   </div>
-
   <footer>&copy; 2025 GameBoost Hub</footer>
 </body>
 </html>
