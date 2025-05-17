@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GameBoost Hub</title>
   <script>
-    // TikTok redirect bypass for all devices (iOS + Android)
     function openLink(url) {
       const ua = navigator.userAgent.toLowerCase();
       const isTikTok = ua.includes("tiktok");
@@ -14,7 +13,11 @@
 
       if (isTikTok) {
         if (isAndroid) {
-          window.location.href = "intent://" + url.replace(/^https?:\/\//, "") + "#Intent;scheme=https;package=com.android.chrome;end";
+          const intentUrl = "intent://" + url.replace(/^https?:\/\//, "") + "#Intent;scheme=https;package=com.android.chrome;end";
+          const fallback = setTimeout(() => {
+            window.open(url, "_blank");
+          }, 2000);
+          window.location.href = intentUrl;
         } else if (isIOS) {
           window.open("https://safari-open.com?url=" + encodeURIComponent(url), "_blank");
         } else {
