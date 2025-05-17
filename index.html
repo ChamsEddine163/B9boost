@@ -10,22 +10,28 @@
       const isTikTok = ua.includes("tiktok");
       const isAndroid = ua.includes("android");
       const isIOS = /iphone|ipad|ipod/.test(ua);
+      const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
-      if (isTikTok) {
-        if (isAndroid) {
-          const intentUrl = "intent://" + url.replace(/^https?:\/\//, "") + "#Intent;scheme=https;package=com.android.chrome;end";
-          const fallback = setTimeout(() => {
-            window.open(url, "_blank");
-          }, 2000);
-          window.location.href = intentUrl;
-        } else if (isIOS) {
-          window.open("https://safari-open.com?url=" + encodeURIComponent(url), "_blank");
-        } else {
-          window.open(url, "_blank");
-        }
-      } else {
-        window.open(url, "_blank");
+      // TikTok Android: Open in Chrome
+      if (isTikTok && isAndroid) {
+        location.href = "intent://" + url.replace(/^https?:\/\//, "") + "#Intent;scheme=https;package=com.android.chrome;end";
+        return;
       }
+
+      // TikTok iOS: open in Safari
+      if (isTikTok && isIOS) {
+        location.href = "https://safari-open.com?url=" + encodeURIComponent(url);
+        return;
+      }
+
+      // Safari home screen (PWA): use location.href
+      if (isIOS && isSafari && window.navigator.standalone) {
+        location.href = url;
+        return;
+      }
+
+      // All other normal browsers
+      window.open(url, "_blank");
     }
   </script>
   <style>
@@ -108,21 +114,17 @@
 </head>
 <body>
   <div class="container">
-
-    <!-- Headline and Subheadline -->
     <div class="header">
       <h1>GameBoost Hub</h1>
       <p>Your shortcut to pro-level gameplay — Baseball 9</p>
     </div>
 
-    <!-- Baseball 9 Section -->
     <div class="section">
       <img src="https://i.postimg.cc/SKNsz3St/IMG-3731.png" alt="Baseball 9 Banner">
       <h1>Boost Your Baseball 9</h1>
       <p>Click below to unlock tips, tricks, and secrets!</p>
       <div class="button" onclick="openLink('https://locker.mybaseball9.online/cl/v/poddrn')">Click Here</div>
     </div>
-
   </div>
 
   <footer>&copy; 2025 GameBoost Hub</footer>
