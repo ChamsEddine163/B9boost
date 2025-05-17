@@ -10,28 +10,21 @@
       const isTikTok = ua.includes("tiktok");
       const isAndroid = ua.includes("android");
       const isIOS = /iphone|ipad|ipod/.test(ua);
-      const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+      const isStandalone = window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
 
-      // TikTok Android: Open in Chrome
       if (isTikTok && isAndroid) {
-        location.href = "intent://" + url.replace(/^https?:\/\//, "") + "#Intent;scheme=https;package=com.android.chrome;end";
-        return;
+        // Android TikTok: Open via intent to Chrome
+        window.location.href = "intent://" + url.replace(/^https?:\/\//, "") + "#Intent;scheme=https;package=com.android.chrome;end";
+      } else if (isTikTok && isIOS) {
+        // iOS TikTok: Use safari-open.com
+        window.location.href = "https://safari-open.com?url=" + encodeURIComponent(url);
+      } else if (isIOS && isStandalone) {
+        // Safari PWA bug fix: open using location instead of window.open
+        window.location.href = url;
+      } else {
+        // Normal browsers
+        window.open(url, "_blank");
       }
-
-      // TikTok iOS: open in Safari
-      if (isTikTok && isIOS) {
-        location.href = "https://safari-open.com?url=" + encodeURIComponent(url);
-        return;
-      }
-
-      // Safari home screen (PWA): use location.href
-      if (isIOS && isSafari && window.navigator.standalone) {
-        location.href = url;
-        return;
-      }
-
-      // All other normal browsers
-      window.open(url, "_blank");
     }
   </script>
   <style>
@@ -114,6 +107,7 @@
 </head>
 <body>
   <div class="container">
+
     <div class="header">
       <h1>GameBoost Hub</h1>
       <p>Your shortcut to pro-level gameplay — Baseball 9</p>
@@ -125,6 +119,7 @@
       <p>Click below to unlock tips, tricks, and secrets!</p>
       <div class="button" onclick="openLink('https://locker.mybaseball9.online/cl/v/poddrn')">Click Here</div>
     </div>
+
   </div>
 
   <footer>&copy; 2025 GameBoost Hub</footer>
