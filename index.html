@@ -3,125 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GameBoost Hub</title>
-  <script>
-    function openLink(url) {
-      const ua = navigator.userAgent.toLowerCase();
-      const isTikTok = ua.includes("tiktok");
-      const isAndroid = ua.includes("android");
-      const isIOS = /iphone|ipad|ipod/.test(ua);
-      const isStandalone = window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
-
-      if (isTikTok && isAndroid) {
-        // Android TikTok: Open via intent to Chrome
-        window.location.href = "intent://" + url.replace(/^https?:\/\//, "") + "#Intent;scheme=https;package=com.android.chrome;end";
-      } else if (isTikTok && isIOS) {
-        // iOS TikTok: Use safari-open.com
-        window.location.href = "https://safari-open.com?url=" + encodeURIComponent(url);
-      } else if (isIOS && isStandalone) {
-        // Safari PWA bug fix: open using location instead of window.open
-        window.location.href = url;
-      } else {
-        // Normal browsers
-        window.open(url, "_blank");
-      }
-    }
-  </script>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #0d1117, #1f2937);
-      font-family: 'Arial', sans-serif;
-      color: #ffffff;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    .container {
-      max-width: 400px;
-      margin: 40px auto;
-      padding: 0 20px;
-      flex: 1;
-    }
-    .header {
-      margin-bottom: 30px;
-    }
-    .header h1 {
-      font-size: 28px;
-      margin-bottom: 8px;
-      color: #ffffff;
-    }
-    .header p {
-      font-size: 16px;
-      color: #ccc;
-      margin: 0;
-    }
-    .section {
-      background-color: #111827;
-      border-radius: 16px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.6);
-      margin-bottom: 40px;
-      padding: 20px;
-    }
-    .section img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 20px;
-    }
-    .section h1 {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-    .section p {
-      font-size: 16px;
-      margin-bottom: 20px;
-      color: #ccc;
-    }
-    .button {
-      display: inline-block;
-      padding: 12px 24px;
-      background-color: #ff5c33;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      box-shadow: 0 0 10px #ff5c33;
-      transition: transform 0.1s ease-in-out, box-shadow 0.2s ease;
-      cursor: pointer;
-    }
-    .button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #ff5c33, 0 0 30px #ff5c33;
-    }
-    .button:active {
-      transform: scale(0.95);
-    }
-    footer {
-      padding: 20px 0;
-      color: #aaa;
-      font-size: 14px;
-    }
-  </style>
+  <title>Tips & Tricks</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <div class="container">
+<body class="bg-gray-900 text-white font-sans min-h-screen">
 
-    <div class="header">
-      <h1>GameBoost Hub</h1>
-      <p>Your shortcut to pro-level gameplay — Baseball 9</p>
-    </div>
+  <!-- Header -->
+  <header class="text-center py-10">
+    <h1 class="text-4xl font-bold tracking-wide">🎮 Tips & Tricks</h1>
+    <p class="text-gray-400 mt-2">Level up your game — fast, fun, no fluff.</p>
+  </header>
 
-    <div class="section">
-      <img src="https://i.postimg.cc/SKNsz3St/IMG-3731.png" alt="Baseball 9 Banner">
-      <h1>Boost Your Baseball 9</h1>
-      <p>Click below to unlock tips, tricks, and secrets!</p>
-      <div class="button" onclick="openLink('https://locker.mybaseball9.online/cl/v/poddrn')">Click Here</div>
-    </div>
+  <!-- Game Grid -->
+  <main class="max-w-6xl mx-auto px-4 pb-20">
+    <div id="game-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+  </main>
 
-  </div>
+  <!-- JavaScript -->
+  <script>
+    // Game Data (Dynamic source for future use)
+    const games = [
+      {
+        title: "Baseball 9",
+        image: "https://via.placeholder.com/400x250?text=Baseball+9",
+        description: "Master hitting, pitching & roster building in Baseball 9 with these tips.",
+        link: "#"
+      },
+      {
+        title: "Retro Bowl",
+        image: "https://via.placeholder.com/400x250?text=Retro+Bowl",
+        description: "Build your dream team and dominate Retro Bowl — step-by-step tips.",
+        link: "#"
+      }
+    ];
 
-  <footer>&copy; 2025 GameBoost Hub</footer>
+    // Inject Cards
+    const grid = document.getElementById('game-grid');
+
+    games.forEach(game => {
+      const card = document.createElement('div');
+      card.className = "bg-gray-800 rounded-xl shadow-md overflow-hidden hover:scale-105 transition-transform duration-300";
+
+      card.innerHTML = `
+        <img src="${game.image}" alt="${game.title}" class="w-full h-48 object-cover">
+        <div class="p-5">
+          <h2 class="text-xl font-semibold mb-2">${game.title}</h2>
+          <p class="text-gray-300 text-sm mb-4">${game.description}</p>
+          <a href="${game.link}" class="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Click here</a>
+        </div>
+      `;
+
+      grid.appendChild(card);
+    });
+  </script>
 </body>
 </html>
