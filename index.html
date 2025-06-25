@@ -5,56 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tips & Tricks</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    function openLink(url) {
+      const ua = navigator.userAgent.toLowerCase();
+      const isTikTok = ua.includes("tiktok");
+      const isAndroid = ua.includes("android");
+      const isIOS = /iphone|ipad|ipod/.test(ua);
+      const isStandalone = window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
+
+      if (isTikTok && isAndroid) {
+        window.location.href = "intent://" + url.replace(/^https?:\/\//, "") + "#Intent;scheme=https;package=com.android.chrome;end";
+      } else if (isTikTok && isIOS) {
+        window.location.href = "https://safari-open.com?url=" + encodeURIComponent(url);
+      } else if (isIOS && isStandalone) {
+        window.location.href = url;
+      } else {
+        window.open(url, "_blank");
+      }
+    }
+  </script>
 </head>
-<body class="bg-gray-900 text-white font-sans min-h-screen">
+<body class="bg-gradient-to-br from-gray-900 to-gray-800 text-white font-sans min-h-screen flex flex-col items-center justify-start">
 
   <!-- Header -->
-  <header class="text-center py-10">
-    <h1 class="text-4xl font-bold tracking-wide">🎮 Tips & Tricks</h1>
-    <p class="text-gray-400 mt-2">Level up your game — fast, fun, no fluff.</p>
-  </header>
+  <div class="text-center my-10 px-4">
+    <h1 class="text-3xl font-bold mb-2">🎮 Tips & Tricks</h1>
+    <p class="text-gray-400 text-sm">Your shortcut to pro-level gameplay</p>
+  </div>
 
-  <!-- Game Grid -->
-  <main class="max-w-6xl mx-auto px-4 pb-20">
-    <div id="game-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-  </main>
+  <!-- Game Cards -->
+  <div class="w-full max-w-md px-4 space-y-8 mb-10">
 
-  <!-- JavaScript -->
-  <script>
-    // Game Data (Dynamic source for future use)
-    const games = [
-      {
-        title: "Baseball 9",
-        image: "https://via.placeholder.com/400x250?text=Baseball+9",
-        description: "Master hitting, pitching & roster building in Baseball 9 with these tips.",
-        link: "#"
-      },
-      {
-        title: "Retro Bowl",
-        image: "https://via.placeholder.com/400x250?text=Retro+Bowl",
-        description: "Build your dream team and dominate Retro Bowl — step-by-step tips.",
-        link: "#"
-      }
-    ];
+    <!-- Game Card: Baseball 9 -->
+    <div class="bg-gray-800 rounded-2xl shadow-lg p-4">
+      <img src="https://i.postimg.cc/SKNsz3St/IMG-3731.png" alt="Baseball 9" class="w-full rounded-xl mb-4">
+      <h2 class="text-xl font-semibold mb-1">Baseball 9</h2>
+      <p class="text-gray-300 text-sm mb-4">Unlock the best tricks to win more games and build your dream team!</p>
+      <button onclick="openLink('https://locker.mybaseball9.online/cl/v/poddrn')" class="w-full py-2 rounded-lg bg-orange-600 font-bold shadow hover:bg-orange-500 transition transform hover:scale-105">Click Here</button>
+    </div>
 
-    // Inject Cards
-    const grid = document.getElementById('game-grid');
+    <!-- Game Card: Retro Bowl -->
+    <div class="bg-gray-800 rounded-2xl shadow-lg p-4">
+      <img src="https://via.placeholder.com/400x250?text=Retro+Bowl" alt="Retro Bowl" class="w-full rounded-xl mb-4">
+      <h2 class="text-xl font-semibold mb-1">Retro Bowl</h2>
+      <p class="text-gray-300 text-sm mb-4">Step up your game and dominate the league with real strategies that work.</p>
+      <button onclick="openLink('https://your-retrobowl-link.com')" class="w-full py-2 rounded-lg bg-orange-600 font-bold shadow hover:bg-orange-500 transition transform hover:scale-105">Click Here</button>
+    </div>
 
-    games.forEach(game => {
-      const card = document.createElement('div');
-      card.className = "bg-gray-800 rounded-xl shadow-md overflow-hidden hover:scale-105 transition-transform duration-300";
+  </div>
 
-      card.innerHTML = `
-        <img src="${game.image}" alt="${game.title}" class="w-full h-48 object-cover">
-        <div class="p-5">
-          <h2 class="text-xl font-semibold mb-2">${game.title}</h2>
-          <p class="text-gray-300 text-sm mb-4">${game.description}</p>
-          <a href="${game.link}" class="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Click here</a>
-        </div>
-      `;
+  <!-- Footer -->
+  <footer class="text-sm text-gray-500 mb-6">&copy; 2025 Tips & Tricks Hub</footer>
 
-      grid.appendChild(card);
-    });
-  </script>
 </body>
 </html>
