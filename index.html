@@ -13,16 +13,12 @@
       const isStandalone = window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
 
       if (isTikTok && isAndroid) {
-        // Android TikTok: Open via intent to Chrome
         window.location.href = "intent://" + url.replace(/^https?:\/\//, "") + "#Intent;scheme=https;package=com.android.chrome;end";
       } else if (isTikTok && isIOS) {
-        // iOS TikTok: Use safari-open.com
         window.location.href = "https://safari-open.com?url=" + encodeURIComponent(url);
       } else if (isIOS && isStandalone) {
-        // Safari PWA bug fix: open using location instead of window.open
         window.location.href = url;
       } else {
-        // Normal browsers
         window.open(url, "_blank");
       }
     }
@@ -110,14 +106,23 @@
 
     <div class="header">
       <h1>GameBoost Hub</h1>
-      <p>Your shortcut to pro-level gameplay — Baseball 9</p>
+      <p>Your shortcut to pro-level gameplay</p>
     </div>
 
+    <!-- Baseball 9 -->
     <div class="section">
       <img src="https://i.postimg.cc/SKNsz3St/IMG-3731.png" alt="Baseball 9 Banner">
       <h1>Boost Your Baseball 9</h1>
       <p>Click below to unlock tips, tricks, and secrets!</p>
       <div class="button" onclick="openLink('https://locker.mybaseball9.online/cl/v/poddrn')">Click Here</div>
+    </div>
+
+    <!-- Retro Bowl -->
+    <div class="section">
+      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/bf/Retro_Bowl_cover.png/250px-Retro_Bowl_cover.png" alt="Retro Bowl Banner">
+      <h1>Boost Your Retro Bowl</h1>
+      <p>Click below to unlock expert tips, winning strategies & hidden tricks!</p>
+      <div class="button" onclick="openLink('https://your-retrobowl-link.com')">Click Here</div>
     </div>
 
   </div>
