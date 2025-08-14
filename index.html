@@ -1,93 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameBoost Hub</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #0f172a;
-            color: white;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        header {
-            padding: 20px;
-        }
-        h1 {
-            font-size: 2em;
-            margin-bottom: 5px;
-        }
-        p {
-            color: #94a3b8;
-            margin-top: 0;
-        }
-        .game-section {
-            margin: 20px;
-            padding: 20px;
-            background-color: #1e293b;
-            border-radius: 10px;
-        }
-        .game-section img {
-            max-width: 100%;
-            border-radius: 10px;
-        }
-        h2 {
-            margin-top: 15px;
-        }
-        a.button {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 12px 24px;
-            background-color: #f97316;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(249, 115, 22, 0.6);
-            animation: pulse 1.5s infinite;
-        }
-        @keyframes pulse {
-            0% { box-shadow: 0 0 15px rgba(249, 115, 22, 0.6); }
-            50% { box-shadow: 0 0 25px rgba(249, 115, 22, 1); }
-            100% { box-shadow: 0 0 15px rgba(249, 115, 22, 0.6); }
-        }
-        footer {
-            margin: 20px 0;
-            font-size: 0.9em;
-            color: #94a3b8;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GameBoost Hub</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #0b1622;
+        color: white;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    header {
+        padding: 20px;
+    }
+    header h1 {
+        margin: 0;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    header p {
+        margin: 5px 0 0;
+        color: #b0b0b0;
+        font-size: 14px;
+    }
+    .game-card {
+        background-color: #121e2c;
+        border-radius: 12px;
+        margin: 20px;
+        padding: 15px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+    }
+    .game-card img {
+        width: 100%;
+        border-radius: 8px;
+    }
+    .game-card h2 {
+        margin: 15px 0 5px;
+        font-size: 20px;
+    }
+    .game-card p {
+        color: #ccc;
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    .btn {
+        background-color: #ff5722;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: bold;
+        transition: 0.3s;
+        display: inline-block;
+        animation: pulse 1.5s infinite;
+    }
+    .btn:hover {
+        background-color: #e64a19;
+    }
+    @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(255,87,34,0.7); }
+        70% { box-shadow: 0 0 0 10px rgba(255,87,34,0); }
+        100% { box-shadow: 0 0 0 0 rgba(255,87,34,0); }
+    }
+    footer {
+        font-size: 12px;
+        color: #888;
+        padding: 15px 0;
+    }
+</style>
 </head>
 <body>
 
 <header>
-    <!-- Removed the logo above GameBoost Hub -->
     <h1>GameBoost Hub</h1>
     <p>Your shortcut to pro-level gameplay</p>
 </header>
 
-<div class="game-section">
-    <img src="https://i.postimg.cc/TYg7gdwL/IMG-6278.jpg" alt="FC Mobile Banner">
+<!-- FC Mobile Card -->
+<div class="game-card">
+    <img src="https://i.postimg.cc/TYg7gdwL/IMG-6278.jpg" alt="FC Mobile">
     <h2>Boost Your FC Mobile</h2>
     <p>Click below to unlock pro tips, tricks and hidden secrets!</p>
-    <a class="button" href="https://installchecker.com/cl/i/5k99qv">Click Here</a>
+    <a class="btn" href="https://installchecker.com/cl/i/5k99qv">Click Here</a>
 </div>
 
-<div class="game-section">
-    <img src="https://upload.wikimedia.org/wikipedia/en/5/54/Baseball9.jpg" alt="Baseball 9 Banner">
+<!-- Baseball 9 Card -->
+<div class="game-card">
+    <img src="https://i.postimg.cc/yNw5X2mp/baseball9-logo.jpg" alt="Baseball 9">
     <h2>Boost Your Baseball 9</h2>
     <p>Click below to unlock pro tactics, winning formations & hidden tricks!</p>
-    <a class="button" href="https://installchecker.com/cl/i/xxxxx">Click Here</a>
+    <a class="btn" href="https://installchecker.com/cl/i/1u6i5m">Click Here</a>
 </div>
 
-<div class="game-section">
-    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/bf/Retro_Bowl_cover.png/250px-Retro_Bowl_cover.png" alt="Retro Bowl Banner">
+<!-- Retro Bowl Card -->
+<div class="game-card">
+    <img src="https://i.postimg.cc/3w3gkzYp/retro-bowl-logo.jpg" alt="Retro Bowl">
     <h2>Boost Your Retro Bowl</h2>
     <p>Click below to unlock pro tactics, winning formations & hidden tricks!</p>
-    <a class="button" href="https://installchecker.com/cl/i/qk77vw">Click Here</a>
+    <a class="btn" href="https://installchecker.com/cl/i/qk77vw">Click Here</a>
 </div>
 
 <footer>
