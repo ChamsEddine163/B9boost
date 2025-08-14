@@ -1,91 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameBoost Hub</title>
-    <style>
-        body {
-            background-color: #0d1117;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 500px;
-            margin: auto;
-            padding: 20px;
-        }
-        .section {
-            background-color: #161b22;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        .section img {
-            max-width: 100%;
-            border-radius: 8px;
-        }
-        .section h1 {
-            font-size: 22px;
-            margin-top: 15px;
-        }
-        .section p {
-            font-size: 14px;
-            color: #aaa;
-        }
-        .button {
-            background-color: #ff4500;
-            color: white;
-            padding: 12px 20px;
-            margin-top: 15px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .button:hover {
-            background-color: #e03e00;
-        }
-    </style>
-    <script>
-        function openLink(url) {
-            window.location.href = url;
-        }
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GameBoost Hub</title>
+
+  <!-- Smart opener for in‑app browsers / iOS PWA -->
+  <script>
+    function openLink(url) {
+      const ua = navigator.userAgent.toLowerCase();
+      const isTikTok = ua.includes("tiktok");
+      const isAndroid = ua.includes("android");
+      const isIOS = /iphone|ipad|ipod/.test(ua);
+      const isStandalone = window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
+
+      if (isTikTok && isAndroid) {
+        window.location.href =
+          "intent://" + url.replace(/^https?:\/\//, "") +
+          "#Intent;scheme=https;package=com.android.chrome;end";
+      } else if (isTikTok && isIOS) {
+        window.location.href = "https://safari-open.com?url=" + encodeURIComponent(url);
+      } else if (isIOS && isStandalone) {
+        window.location.href = url;
+      } else {
+        window.open(url, "_blank");
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #0d1117, #1f2937);
+      font-family: Arial, sans-serif;
+      color: #ffffff;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 400px;
+      margin: 40px auto;
+      padding: 0 20px;
+      flex: 1;
+    }
+
+    /* Header */
+    .header { margin-bottom: 30px; }
+    .header-logo {
+      width: 72px; height: 72px; object-fit: cover; border-radius: 12px;
+      margin: 0 auto 10px; box-shadow: 0 0 12px rgba(0,0,0,0.4);
+    }
+    .header h1 { font-size: 28px; margin-bottom: 8px; color: #fff; }
+    .header p { font-size: 16px; color: #ccc; margin: 0; }
+
+    /* Sections */
+    .section {
+      background-color: #111827;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      margin-bottom: 40px;
+      padding: 20px;
+    }
+    .section img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      background:#0f172a; /* fallback bg so broken img doesn’t look ugly */
+    }
+    .section h1 { font-size: 22px; margin-bottom: 10px; }
+    .section p { font-size: 16px; margin-bottom: 20px; color: #ccc; }
+
+    /* Button with glow + scale */
+    .button {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #ff5c33;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      box-shadow: 0 0 10px #ff5c33;
+      transition: transform 0.12s ease-in-out, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+    .button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #ff5c33, 0 0 30px #ff5c33;
+    }
+    .button:active { transform: scale(0.95); }
+
+    footer { padding: 20px 0; color: #aaa; font-size: 14px; }
+  </style>
 </head>
 <body>
+  <div class="container">
 
-<div class="container">
-
-    <!-- FC Mobile -->
-    <div class="section">
-        <img src="https://i.postimg.cc/TYg7gdwL/IMG-6278.jpg" alt="FC Mobile Banner">
-        <h1>Boost Your FC Mobile</h1>
-        <p>Click below to unlock pro tips, tricks & hidden secrets!</p>
-        <div class="button" onclick="openLink('https://installchecker.com/cl/i/5k99qv')">Click Here</div>
+    <!-- Header (restored) -->
+    <div class="header">
+      <img class="header-logo" src="https://i.postimg.cc/TYg7gdwL/IMG-6278.jpg" alt="GameBoost Hub Logo">
+      <h1>GameBoost Hub</h1>
+      <p>Your shortcut to pro-level gameplay</p>
     </div>
 
-    <!-- Retro Bowl -->
+    <!-- FC Mobile FIRST (logo used as banner as requested) -->
     <div class="section">
-        <img src="https://i.postimg.cc/Kj9QWvWj/retro-bowl-banner.jpg" alt="Retro Bowl Banner">
-        <h1>Boost Your Retro Bowl</h1>
-        <p>Click below to unlock expert tips, winning strategies & hidden tricks!</p>
-        <div class="button" onclick="openLink('https://installchecker.com/cl/i/qk77vw')">Click Here</div>
+      <img src="https://i.postimg.cc/TYg7gdwL/IMG-6278.jpg" alt="FC Mobile Banner">
+      <h1>Boost Your FC Mobile</h1>
+      <p>Click below to unlock pro tips, tricks & hidden secrets!</p>
+      <div class="button" onclick="openLink('https://installchecker.com/cl/i/5k99qv')">Click Here</div>
     </div>
 
-    <!-- Baseball 9 -->
+    <!-- Baseball 9 (banner and link restored) -->
     <div class="section">
-        <img src="https://i.postimg.cc/9f6kGLc0/baseball9-banner.jpg" alt="Baseball 9 Banner">
-        <h1>Boost Your Baseball 9</h1>
-        <p>Click below to unlock pro tips, batting strategies & pitching secrets!</p>
-        <div class="button" onclick="openLink('https://installchecker.com/cl/i/abcd12')">Click Here</div>
+      <img src="https://i.postimg.cc/SKNsz3St/IMG-3731.png" alt="Baseball 9 Banner">
+      <h1>Boost Your Baseball 9</h1>
+      <p>Click below to unlock tips, tricks, and secrets!</p>
+      <div class="button" onclick="openLink('https://locker.mybaseball9.online/cl/v/poddrn')">Click Here</div>
     </div>
 
-</div>
+    <!-- Retro Bowl (banner + updated locker link) -->
+    <div class="section">
+      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/bf/Retro_Bowl_cover.png/250px-Retro_Bowl_cover.png" alt="Retro Bowl Banner">
+      <h1>Boost Your Retro Bowl</h1>
+      <p>Click below to unlock expert tips, winning strategies & hidden tricks!</p>
+      <div class="button" onclick="openLink('https://installchecker.com/cl/i/qk77vw')">Click Here</div>
+    </div>
 
+  </div>
+
+  <!-- Footer (restored) -->
+  <footer>&copy; 2025 GameBoost Hub</footer>
 </body>
 </html>
