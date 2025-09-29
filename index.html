@@ -1,126 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GameBoost Hub</title>
-
-  <!-- Smart opener (handles TikTok/IG in-app, iOS PWA, etc.) -->
-  <script>
-    function openLink(url) {
-      const ua = navigator.userAgent.toLowerCase();
-      const isTikTok = ua.includes("tiktok");
-      const isAndroid = ua.includes("android");
-      const isIOS = /iphone|ipad|ipod/.test(ua);
-      const isStandalone = window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
-
-      if (isTikTok && isAndroid) {
-        window.location.href =
-          "intent://" + url.replace(/^https?:\/\//, "") +
-          "#Intent;scheme=https;package=com.android.chrome;end";
-      } else if (isTikTok && isIOS) {
-        window.location.href = "https://safari-open.com?url=" + encodeURIComponent(url);
-      } else if (isIOS && isStandalone) {
-        window.location.href = url;
-      } else {
-        window.open(url, "_blank");
-      }
-    }
-  </script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brawl Stars Package</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #0d1117, #1f2937);
       font-family: Arial, sans-serif;
-      color: #ffffff;
+      background: linear-gradient(180deg, #1e0036, #0d001a);
+      color: #fff;
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
     }
-    .container {
-      max-width: 400px;
-      margin: 40px auto;
-      padding: 0 20px;
-      flex: 1;
+    .hero {
+      padding: 30px;
     }
-
-    /* Header (text only) */
-    .header { margin-bottom: 30px; }
-    .header h1 { font-size: 28px; margin-bottom: 8px; color: #fff; }
-    .header p  { font-size: 16px; color: #ccc; margin: 0; }
-
-    /* Cards */
-    .section {
-      background-color: #111827;
-      border-radius: 16px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.6);
-      margin-bottom: 40px;
-      padding: 20px;
-    }
-    .section img {
-      width: 100%;
+    .hero img {
+      max-width: 90%;
       border-radius: 12px;
-      margin-bottom: 20px;
-      background:#0f172a; /* fallback bg if image fails */
     }
-    .section h1 { font-size: 22px; margin-bottom: 10px; }
-    .section p  { font-size: 16px; margin-bottom: 20px; color: #ccc; }
-
-    /* Buttons with glow + scale */
+    h1 {
+      font-size: 2rem;
+      margin: 20px 0;
+      color: #9d7dff;
+    }
+    .card {
+      background: rgba(255,255,255,0.05);
+      margin: 30px auto;
+      padding: 25px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 600px;
+    }
+    .card img {
+      max-width: 150px;
+      margin-bottom: 20px;
+    }
+    .card h2 {
+      font-size: 1.5rem;
+      color: #8ab4ff;
+    }
+    .card p {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin: 15px 0;
+    }
     .button {
       display: inline-block;
-      padding: 12px 24px;
-      background-color: #ff5c33;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 8px;
+      padding: 15px 40px;
+      font-size: 1.2rem;
       font-weight: bold;
-      box-shadow: 0 0 10px #ff5c33;
-      transition: transform 0.12s ease-in-out, box-shadow 0.2s ease;
+      color: #fff;
+      background: linear-gradient(90deg, #7a5cff, #4bb4ff);
+      border: none;
+      border-radius: 30px;
       cursor: pointer;
-      margin: 8px;
+      margin-top: 20px;
+      text-decoration: none;
     }
-    .button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #ff5c33, 0 0 30px #ff5c33;
+    .note {
+      font-size: 0.9rem;
+      color: #bbb;
+      margin-top: 10px;
     }
-    .button:active { transform: scale(0.95); }
-
-    footer { padding: 20px 0; color: #aaa; font-size: 14px; }
+    footer {
+      background: #0a0015;
+      padding: 40px 20px;
+      margin-top: 40px;
+    }
+    footer h3 {
+      color: #9d7dff;
+      margin-bottom: 10px;
+    }
+    footer p, footer a {
+      font-size: 0.9rem;
+      color: #ccc;
+      text-decoration: none;
+    }
+    .socials img {
+      width: 30px;
+      margin: 10px;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
 
-    <!-- Header (text only) -->
-    <div class="header">
-      <h1>GameBoost Hub</h1>
-      <p>Your shortcut to pro-level gameplay</p>
-    </div>
-
-    <!-- Brawl Stars -->
-    <div class="section">
-      <img src="https://i.postimg.cc/Gh1q1XhB/IMG-6508.jpg" alt="Brawl Stars Banner">
-      <h1>Boost Your Brawl Stars</h1>
-      <p>Select your option below to unlock exclusive rewards:</p>
-      <div class="button" onclick="openLink('https://locker.mybaseball9.online/cl/i/6n7kqv')">Tips &amp; Tricks</div>
-      <div class="button" onclick="openLink('https://locker.mybaseball9.online/cl/i/827m6k')">Mod APK (Android only)</div>
-    </div>
-
-    <!-- Baseball 9 (now with two buttons like Brawl Stars) -->
-    <div class="section">
-      <img src="https://i.postimg.cc/SKNsz3St/IMG-3731.png" alt="Baseball 9 Banner">
-      <h1>Boost Your Baseball 9</h1>
-      <p>Select your option below to unlock exclusive rewards:</p>
-      <div class="button" onclick="openLink('https://locker.mybaseball9.online/cl/v/poddrn')">Tips &amp; Tricks</div>
-      <div class="button" onclick="openLink('https://locker.mybaseball9.online/cl/i/pq2me2')">Mod APK (Android only)</div>
-    </div>
-
+  <!-- Hero banner -->
+  <div class="hero">
+    <img src="brawlstars_banner.jpg" alt="Brawl Stars Banner">
+    <h1>Brawl Stars Package</h1>
   </div>
 
-  <footer>&copy; 2025 GameBoost Hub</footer>
+  <!-- Exclusive Package Card -->
+  <div class="card">
+    <img src="brawlstars_characters.jpg" alt="Brawl Stars Package">
+    <h2>Exclusive Reward Package</h2>
+    <p>
+      Unlock amazing rewards and boost your Brawl Stars experience with this special package. 
+      Get ready to dominate the arena with exclusive content!
+    </p>
+    <a href="https://YOUR_CONTENT_LOCKER_LINK_HERE" class="button">Unlock Package</a>
+    <div class="note">(Android only)</div>
+  </div>
+
+  <!-- Info section -->
+  <div class="card">
+    <p>
+      This package includes exclusive resources to boost your Brawl Stars gameplay! 
+      Complete the next step to verify and receive it instantly.
+    </p>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <h3>About Us</h3>
+    <p>
+      PlayBoost is your ultimate destination for Brawl Stars fans. 
+      Discover the latest updates, exclusive packages, and special offers to boost your gameplay.
+    </p>
+    <h3>Quick Links</h3>
+    <p><a href="#">Home</a> | <a href="#">Categories</a> | <a href="#">Top Games</a> | <a href="#">Contact</a></p>
+    <h3>Contact Us</h3>
+    <p>Email: contact@playboost.com<br>
+    Phone: +1 234 567 890<br>
+    Address: Brawl Stars Street 123, Gaming World</p>
+    <div class="socials">
+      <a href="#"><img src="https://img.icons8.com/fluency/48/facebook.png" alt="Facebook"></a>
+      <a href="#"><img src="https://img.icons8.com/fluency/48/youtube-play.png" alt="YouTube"></a>
+      <a href="#"><img src="https://img.icons8.com/fluency/48/instagram-new.png" alt="Instagram"></a>
+    </div>
+    <p>© 2025 PlayBoost. All rights reserved.</p>
+  </footer>
+
 </body>
 </html>
